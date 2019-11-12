@@ -18,7 +18,7 @@ browser.contextMenus.create({
     title: "Shop this item",
     contexts: ["selection"],
 });
-
+asd
 for(i=0;i<defaultProvider.length;i++){
     browser.contextMenus.create({
         parentId: 'main-menu',
