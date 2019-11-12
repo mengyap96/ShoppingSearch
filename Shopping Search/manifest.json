@@ -1,19 +1,36 @@
 {
-  "manifest_version": 2,
-  "name": "Shopping Search",
-  "description": "Help user to search the item they desired to buy.",
-  "version": "1.0",
-
-  "background": {
-      "scripts": [
-          "background.js"
-      ]
-  },
-
-  "permissions": [
-      "activeTab",
-      "contextMenus",
-      "clipboardWrite"
-  ]
-
-}
+    "manifest_version": 2,
+    "name": "Shopping Search",
+    "description": "Help user to search the item they desired to buy.",
+    "version": "1.0",
+  
+    "background": {
+        "scripts": [
+            "background.js"
+        ]
+    },
+  
+    "permissions": [
+        "activeTab",
+        "contextMenus",
+        "clipboardWrite"
+    ],
+    
+  
+  
+    "browser_action": {
+      "default_icon": "icons/lazada.png",
+      "default_title": "Shop it!"
+    },
+  
+  
+    "commands": {
+      "search": {
+        "suggested_key": {
+          "default": "Ctrl+Shift+L"
+        },
+        "description": "Send a 'toggle-feature' event"
+      }
+    }
+  
+  }

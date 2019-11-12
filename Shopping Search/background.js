@@ -9,18 +9,22 @@ var Provider = class Provider {
 
 const defaultProvider = [
     new Provider('Lazada', 'icons/lazada.png', 'https://www.lazada.com.my/catalog/?q=%s', true),
-    new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true)
+    new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true),
+    new Provider('')
 ]
 
 
-browser.contextMenus.create({
+
+
+chrome.contextMenus.create({
     id: "main-menu",
     title: "Shop this item",
     contexts: ["selection"],
 });
-asd
+
+
 for(i=0;i<defaultProvider.length;i++){
-    browser.contextMenus.create({
+    chrome.contextMenus.create({
         parentId: 'main-menu',
         id: i.toString(),
         icons: {
@@ -31,7 +35,7 @@ for(i=0;i<defaultProvider.length;i++){
     });
 }
 
-browser.contextMenus.onClicked.addListener((info, tab) => {
+chrome.contextMenus.onClicked.addListener((info, tab) => {
     
     console.log("Searched "+info.selectionText +"at "+info.menuItemId)
     
@@ -41,3 +45,28 @@ browser.contextMenus.onClicked.addListener((info, tab) => {
 
 });
 
+
+
+
+chrome.commands.onCommand.addListener(function(command) {
+    if(command == "search") {
+      chrome.tabs.executeScript( {
+        code: "window.getSelection().toString();"
+      }, function(selection) {
+        chrome.tabs.create({
+            url:defaultProvider[0].url.replace('%s',selection[0]),
+        })
+      });
+    }
+  });
+
+chrome.browserAction.onClicked.addListener(function(activeTab)
+{
+    chrome.tabs.executeScript( {
+        code: "window.getSelection().toString();"
+      }, function(selection) {
+        chrome.tabs.create({
+            url:defaultProvider[0].url.replace('%s',selection[0]),
+        })
+      });
+});
