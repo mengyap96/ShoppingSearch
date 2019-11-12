@@ -46,8 +46,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 
 
-
-
 chrome.commands.onCommand.addListener(function(command) {
     if(command == "search") {
       chrome.tabs.executeScript( {
@@ -58,6 +56,7 @@ chrome.commands.onCommand.addListener(function(command) {
         })
       });
     }
+
   });
 
 chrome.browserAction.onClicked.addListener(function(activeTab)
@@ -70,3 +69,4 @@ chrome.browserAction.onClicked.addListener(function(activeTab)
         })
       });
 });
+
