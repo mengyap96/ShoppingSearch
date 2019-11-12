@@ -9,7 +9,8 @@ var Provider = class Provider {
 
 const defaultProvider = [
     new Provider('Lazada', 'icons/lazada.png', 'https://www.lazada.com.my/catalog/?q=%s', true),
-    new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true)
+    new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true),
+    new Provider('')
 ]
 
 
@@ -45,17 +46,6 @@ chrome.contextMenus.onClicked.addListener((info, tab) => {
 });
 
 
-// chrome.commands.onCommand.addListener(function(command) {
-//     result = window.getSelection().toString();
-
-//     console.log(result)
-//     if (command == "search") {
-//         browser.tabs.create({
-//             url:defaultProvider[0].url.replace('%s',"blue"),
-//         })
-//     }
-//   });
-
 chrome.commands.onCommand.addListener(function(command) {
     if(command == "search") {
       chrome.tabs.executeScript( {
@@ -66,4 +56,17 @@ chrome.commands.onCommand.addListener(function(command) {
         })
       });
     }
+
   });
+
+chrome.browserAction.onClicked.addListener(function(activeTab)
+{
+    chrome.tabs.executeScript( {
+        code: "window.getSelection().toString();"
+      }, function(selection) {
+        chrome.tabs.create({
+            url:defaultProvider[0].url.replace('%s',selection[0]),
+        })
+      });
+});
+
