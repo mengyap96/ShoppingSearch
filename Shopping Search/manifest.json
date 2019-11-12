@@ -1,0 +1,19 @@
+{
+  "manifest_version": 2,
+  "name": "Shopping Search",
+  "description": "Help user to search the item they desired to buy.",
+  "version": "1.0",
+
+  "background": {
+      "scripts": [
+          "background.js"
+      ]
+  },
+
+  "permissions": [
+      "activeTab",
+      "contextMenus",
+      "clipboardWrite"
+  ]
+
+}
