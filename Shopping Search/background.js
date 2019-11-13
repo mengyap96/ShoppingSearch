@@ -12,6 +12,7 @@ const defaultProvider = [
     new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true),
 	new Provider('Presto', 'icons/presto.png', 'https://www.prestomall.com/totalsearch/TotalSearchAction/searchTotal.do?kwd=%s', true)
 	
+
 ]
 
 
