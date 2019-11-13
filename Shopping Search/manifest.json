@@ -1,41 +1,38 @@
 {
 
-    "manifest_version": 2,
-    "name": "Shopping Search",
-    "description": "Help user to search the item they desired to buy.",
-    "version": "1.0",
+  "manifest_version": 2,
+  "name": "Shopping Search",
+  "description": "Help user to search the item they desired to buy.",
+  "version": "1.0",
 
-    "icons": {
-      "48": "icons/logo.png"
-    },
+  "icons": {
+    "48": "icons/logo.png"
+  },
 
-    "background": {
-        "scripts": [
-            "background.js"
-        ]
-    },
+  "background": {
+      "scripts": [
+          "background.js"
+      ]
+  },
+
+  "permissions": [
+      "activeTab",
+      "contextMenus",
+      "clipboardWrite"
+  ],
   
-    "permissions": [
-        "activeTab",
-        "contextMenus",
-        "clipboardWrite"
-    ],
-    
-  
-  
-    "browser_action": {
-      "default_icon": "icons/logo.png",
-      "default_title": "Shop it!"
-    },
-  
-  
-    "commands": {
-      "search": {
-        "suggested_key": {
-          "default": "Ctrl+Shift+L"
-        },
-        "description": "Send a 'toggle-feature' event"
-      }
+  "browser_action": {
+    "default_icon": "icons/logo.png",
+    "default_title": "Shop it!"
+  },
+
+  "commands": {
+    "search": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+L"
+      },
+      "description": "Send a 'toggle-feature' event"
     }
-  
   }
+
+}
