@@ -4,7 +4,11 @@
     "name": "Shopping Search",
     "description": "Help user to search the item they desired to buy.",
     "version": "1.0",
-  
+
+    "icons": {
+      "48": "icons/logo.png"
+    },
+
     "background": {
         "scripts": [
             "background.js"
@@ -20,7 +24,7 @@
   
   
     "browser_action": {
-      "default_icon": "icons/lazada.png",
+      "default_icon": "icons/logo.png",
       "default_title": "Shop it!"
     },
   

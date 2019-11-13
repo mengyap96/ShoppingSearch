@@ -10,7 +10,8 @@ var Provider = class Provider {
 const defaultProvider = [
     new Provider('Lazada', 'icons/lazada.png', 'https://www.lazada.com.my/catalog/?q=%s', true),
     new Provider('Shopee', 'icons/shopee.png', 'https://shopee.com.my/search?keyword=%s', true),
-    new Provider('')
+	new Provider('Presto', 'icons/presto.png', 'https://www.prestomall.com/totalsearch/TotalSearchAction/searchTotal.do?kwd=%s', true)
+	
 ]
 
 
